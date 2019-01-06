@@ -1,0 +1,22 @@
+server:
+  port: 8095
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8093/eureka/
+  instance:
+    hostname: localhost
+ 
+zuul:
+  prefix: /api
+  routes: 
+      config-client: 
+      path: /demo/**
+      serviceId: config-client  
+
+ribbon:
+    eureka:
+        enabled: true    
